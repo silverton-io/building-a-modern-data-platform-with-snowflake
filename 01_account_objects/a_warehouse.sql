@@ -18,9 +18,7 @@ drop warehouse if exists compute_wh;
 -- ####################################################################################################################
 create warehouse loader warehouse_size = xsmall auto_suspend = 59 auto_resume = true initially_suspended = true comment = 'A warehouse for load operations';
 create warehouse transformer warehouse_size = xsmall auto_suspend = 59 auto_resume = true initially_suspended = true comment = 'A warehouse for transform operations';
-create warehouse reader warehouse_size = xsmall auto_suspend = 59 auto_resume = true initially_suspended = true comment = 'A warehouse for read operation';
-
-alter warehouse reader set comment = 'A warehouse for read operations';
+create warehouse reader warehouse_size = xsmall auto_suspend = 59 auto_resume = true initially_suspended = true comment = 'A warehouse for read operations';
 
 
 -- ####################################################################################################################

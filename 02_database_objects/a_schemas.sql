@@ -7,8 +7,8 @@ use role sysadmin;
 -- ####################################################################################################################
 -- Set up raw source schemas
 -- ####################################################################################################################
-create schema raw.snowplow comment = 'Raw site traffic data';
 create schema raw.titanic comment = 'Raw titanic data' data_retention_time_in_days = 1;
+create schema raw.snowplow comment = 'Raw site traffic data';
 
 
 -- ####################################################################################################################

@@ -7,8 +7,9 @@ use role sysadmin;
 -- ####################################################################################################################
 -- Create views and tables for titanic data
 -- ####################################################################################################################
-create view
+create or replace view
     analytics.titanic.passengers_survived
+comment = 'A view of the surviving titanic passengers'
 as select
     *
 from
@@ -17,8 +18,9 @@ where
     survived = true;
 
 
-create view
+create or replace view
     analytics.titanic.passengers_not_survived
+comment = 'A view of the titanic passengers who did not survive'
 as select
     *
 from
@@ -28,12 +30,13 @@ where
 
 
 create or replace table analytics.titanic.age_buckets (
-    age_range   varchar(3),
+    age_range   varchar(8),
     sex         varchar(6),
     survived    boolean,
     pclass      integer,
     avg_fare    float
 )
+comment = 'Age buckets of titanic passengers, avg fares, and survival status'
 as
     select
         case
@@ -73,7 +76,7 @@ from
     1;
 
 
-create view
+create or replace view
     analytics.web.page_stats
 as select
     page_url,
@@ -83,3 +86,14 @@ from
     raw.snowplow.events
 group by
     1;
+
+
+-- ####################################################################################################################
+-- To clean up what we've just created
+-- ####################################################################################################################
+drop view analytics.titanic.passengers_survived;
+drop view analytics.titanic.passengers_not_survived;
+drop table analytics.titanic.age_buckets;
+
+drop view analytics.web.daily_user_session_agg;
+drop view analytics.web.page_stats;

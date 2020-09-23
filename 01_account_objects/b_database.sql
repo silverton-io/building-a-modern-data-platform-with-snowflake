@@ -19,7 +19,7 @@ use role sysadmin;
 --      There are many ways to structure this, and it largely depends on company norms/policies/etc.
 -- ####################################################################################################################
 -- Global
-create database util comment = 'Global utilies';
+create database util comment = 'Global utilities';
 -- Dev environment
 create database dev_raw comment = 'Raw development-environment data';
 create database dev_raw_sensitive comment = 'Raw development-environment data that is particularly sensitive. PII, HIPAA, etc';
